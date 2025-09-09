@@ -157,3 +157,38 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// === Resume modal ===
+const resumeModal = document.getElementById('resumeModal');
+const openResumeModalBtn = document.getElementById('openResumeModal');
+const closeResumeModalBtn = document.getElementById('closeResumeModal');
+const resumeBackdrop = document.getElementById('resumeModalBackdrop');
+
+function openResumeModal() {
+  if (!resumeModal) return;
+  // Support both attribute & class toggles
+  resumeModal.setAttribute('aria-hidden', 'false');
+  resumeModal.classList.add('active');
+  document.documentElement.classList.add('modal-open');
+  document.body.classList.add('modal-open');
+  closeResumeModalBtn?.focus();
+  document.addEventListener('keydown', onResumeEsc);
+}
+
+function closeResumeModal() {
+  if (!resumeModal) return;
+  resumeModal.setAttribute('aria-hidden', 'true');
+  resumeModal.classList.remove('active');
+  document.documentElement.classList.remove('modal-open');
+  document.body.classList.remove('modal-open');
+  document.removeEventListener('keydown', onResumeEsc);
+  openResumeModalBtn?.focus();
+}
+
+function onResumeEsc(e) {
+  if (e.key === 'Escape') closeResumeModal();
+}
+
+openResumeModalBtn?.addEventListener('click', openResumeModal);
+closeResumeModalBtn?.addEventListener('click', closeResumeModal);
+resumeBackdrop?.addEventListener('click', closeResumeModal);

@@ -1880,3 +1880,92 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+
+/* CTA link-button */
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--text-accent, #ffcc66);
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.btn-link:hover { opacity: 0.85; }
+
+/* Modal base */
+.resume-modal {
+  position: fixed;
+  inset: 0;
+  display: none; /* toggled to flex by JS */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.resume-modal[aria-hidden="false"] { display: flex; }
+
+/* Backdrop */
+.resume-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+/* Dialog */
+.resume-modal__dialog {
+  position: relative;
+  background: #101014; /* match your theme; adjust as needed */
+  color: inherit;
+  width: min(100%, 960px);
+  margin: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+  overflow: hidden;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.resume-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.resume-modal__close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Content */
+.resume-modal__content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.resume-modal__iframe {
+  width: 100%;
+  height: 70vh; /* good desktop height; mobile will shrink naturally */
+  border: none;
+  display: block;
+}
+.pdf-fallback {
+  color: #ffcc66;
+  padding: 0.75rem 1rem 1rem;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+.pdf-fallback a { color: #ffcc66; text-decoration: underline; }
+
+.pdf-fallback a:hover {
+  opacity: 0.85;
+}
+
+/* Optional: prevent background scroll when modal open */
+html.modal-open, body.modal-open { overflow: hidden; }
