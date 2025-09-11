@@ -1,0 +1,78 @@
+<header class="project-header project-header--compact">
+  <h1>TES ML Research</h1>
+  <p>Machine Learning Research for Thermal Energy Storage</p>
+</header>
+
+<main class="stack-vertical tes-ml-partial">
+  <section>
+    <h2>Project Overview</h2>
+    <p>Simulations for thermal energy storage charging and discharging are widely used to predict costs, time requirements, and energy outcomes. However, these simulations are computationally intensive and slow. By leveraging time-sequential machine learning models, we aim to develop faster alternatives while maintaining accuracy.</p>
+  </section>
+
+  <section class="key-features">
+    <h2>Models Used</h2>
+    <ul>
+      <li><strong>Long Short-Term Memory (LSTM):</strong> Mitigates vanishing gradients to capture long-range temporal dependencies.</li>
+      <li><strong>Gated Recurrent Unit (GRU):</strong> Streamlined recurrent cell balancing speed and accuracy for time-series.</li>
+      <li><strong>Recurrent Neural Network (RNN):</strong> Baseline sequential model; may struggle with long-term dependencies.</li>
+      <li><strong>Radial Basis Function RNN (RBF-RNN):</strong> Integrates radial basis functions into RNNs for pattern approximation.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Results</h2>
+    <p>We tested five cases with thermal input patterns that differ significantly from the training set to evaluate whether models learn underlying physical behavior rather than interpolate.</p>
+
+    <figure class="image-container">
+      <img
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Figure_1-uTn1pcdiEF5ZaSgHDoczM6mhzdoeuu.png"
+        alt="TES Case 1: actual vs predicted temperature over time"
+        class="project-image project-image--sm">
+      <figcaption class="image-caption">Case 1: Comparison of actual vs. predicted temperature values over time</figcaption>
+    </figure>
+
+    <figure class="image-container">
+      <img
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Figure_4-z7fFFRNaSjxnyKU8mtAX7xbxzkTkZe.png"
+        alt="TES Case 4: actual vs predicted temperature over time"
+        class="project-image project-image--sm">
+      <figcaption class="image-caption">Case 4: Comparison of actual vs. predicted temperature values over time</figcaption>
+    </figure>
+  </section>
+
+  <section class="key-features">
+    <h2>Performance Comparison</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>GRU</th>
+          <th>LSTM</th>
+          <th>RBF-RNN</th>
+          <th>RNN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Training Time (s)</strong></td>
+          <td>60</td>
+          <td>58</td>
+          <td>122</td>
+          <td>49</td>
+        </tr>
+        <tr>
+          <td><strong>Average Testing Time (s)</strong></td>
+          <td>0.084</td>
+          <td>0.067</td>
+          <td>0.13</td>
+          <td>0.07</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+    <h2>Conclusion</h2>
+    <p>This research is ongoing, with discharge patterns yet to be trained or tested. Expanding the dataset with a broader range of features will be essential for models that generalize across scenarios; as the feature space grows, dimensionality reduction will help maintain efficiency.</p>
+    <p>Preliminary results indicate that <strong>GRU</strong> predictions are the most accurate, and all models process thermal inputs in under a second with adequate hardware—dramatically faster than the ~10-minute simulation runtime.</p>
+
+  <p><a href="https://github.com/alexajb2/ML-Thermal-Energy-Storage-Simulations" class="github-link" target="_blank" rel="noopener">View on GitHub</a></p>
+</main>

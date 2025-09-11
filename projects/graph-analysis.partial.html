@@ -1,0 +1,87 @@
+<header>
+  <h1>Basic Graph Analysis</h1>
+  <p>Implementation of graph algorithms including clustering coefficient</p>
+</header>
+
+<main class="stack-vertical graph-analysis-partial">
+  <section>
+    <h2>Project Overview</h2>
+    <p>The clustering coefficient measures how tightly knit a node’s neighborhood is—i.e., the degree to which nodes in a graph tend to cluster together.</p>
+
+    <figure class="image-container">
+      <img
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Graph_from_Algorithm_Tests-xeEK3uvNLLmOApfbPvvxUMbZsSA8w7.png"
+        alt="Graph with 10 nodes and 14 edges illustrating clustering patterns"
+        class="project-image">
+      <figcaption class="image-caption">Visualization of a 10-node, 14-edge graph showing clustering patterns</figcaption>
+    </figure>
+  </section>
+
+  <!-- key-features added here so bold items pop if you add any later -->
+  <section class="key-features">
+    <h2>Graph Algorithm Functions and Uses</h2>
+    <p>Graphs model highways, social networks, protein interactions, and more. This project includes utilities to compute:</p>
+    <ul>
+      <li>Degree distribution</li>
+      <li>Number of edges</li>
+      <li>Number of nodes</li>
+      <li>A heuristic for estimating the graph diameter</li>
+      <li>The O(d² · n) clustering-coefficient algorithm that counts triangles</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Clustering Coefficient Algorithm: Counting Triangles</h2>
+
+    <figure class="equation-box">
+      <figcaption>Naive complexity</figcaption>
+      <code>O(n³)</code>
+    </figure>
+    <p>Loop through every node triple and count each triangle that exists.</p>
+
+    <figure class="equation-box">
+      <figcaption>Optimized via degeneracy ordering</figcaption>
+      <code>O(k² · n)</code>
+    </figure>
+    <p>A graph is <em>k</em>-degenerate if every subgraph has a vertex with degree ≤ <em>k</em>.</p>
+
+    <pre class="pseudocode"><code>for u in all nodes:                       # O(n)
+    for v in neighbors(u):                 # O(deg(u))
+        for w in neighbors(u):             # or neighbors(v)
+            if v adjacent to w:
+                add to count</code></pre>
+
+    <p><strong>Notes</strong></p>
+    <ul class="note-list">
+      <li>Avoid triple counting by checking only u &lt; v &lt; w.</li>
+      <li>Use degeneracy ordering (bucket pop high → low degree) to reduce intersections.</li>
+    </ul>
+  </section>
+
+  <section class="key-features">
+    <h2>Graph Metrics</h2>
+    <p>The example graph above has:</p>
+    <ul>
+      <li><strong>Nodes:</strong> 10</li>
+      <li><strong>Edges:</strong> 14</li>
+      <li><strong>Diameter:</strong> 5</li>
+      <li><strong>Clustering Coefficient:</strong> 0.40</li>
+      <li><strong>Degree Distribution:</strong> {2: 5, 5: 1, 4: 1, 3: 3}</li>
+    </ul>
+    <p>These metrics reveal structure and connectivity patterns useful for analysis and visualization.</p>
+  </section>
+
+  <section>
+    <h2>Applications</h2>
+    <p>Common use cases include:</p>
+    <ul>
+      <li>Social network analysis</li>
+      <li>Transportation network optimization</li>
+      <li>Biological networks (protein interactions, neural graphs)</li>
+      <li>Recommendation systems</li>
+      <li>Web page ranking and link analysis</li>
+    </ul>
+  </section>
+
+  <p><a href="https://github.com/alexajb2" class="github-link" target="_blank" rel="noopener">View on GitHub</a></p>
+</main>

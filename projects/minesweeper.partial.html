@@ -1,0 +1,61 @@
+<header class="project-header project-header--compact">
+  <h1>Minesweeper AI Solver</h1>
+  <p>An AI-powered solver for Minesweeper puzzles</p>
+</header>
+
+<main class="stack-vertical minesweeper-partial">
+  <section>
+    <h2>Project Overview</h2>
+    <p>This project consists of a React frontend and a Python FastAPI backend that work together to visualize an AI solving Minesweeper puzzles in real time.</p>
+
+    <figure class="image-container">
+      <img
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/minesweeper_gif-IrnP9t6O1Fct3Q0qJwBjpxOIramuDC.gif"
+        alt="Animated demo of the Minesweeper AI solver playing a board"
+        class="project-image">
+      <figcaption class="image-caption">Demonstration of the AI solving a Minesweeper puzzle</figcaption>
+    </figure>
+  </section>
+
+  <section class="ai-algorithm">
+    <h2>AI Algorithm</h2>
+    <ul>
+      <li>Set operations — set pair subtraction and division to find guaranteed solutions.</li>
+      <li>Constraint satisfaction — forward checking and backtracking to estimate the probability of tiles being safe or bombs.</li>
+      <li>Bayesian analysis — when no moves are guaranteed, a Bayesian tree balances probability and information gain.</li>
+      <li>Heuristic optimization — for large frontiers, limits computation time and predicts based on estimated probabilities.</li>
+    </ul>
+  </section>
+
+  <section class="key-features">
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>Generate puzzles</strong> with multiple difficulty levels and board sizes.</li>
+      <li><strong>Watch the AI</strong> solve boards step by step with timeline controls.</li>
+      <li><strong>Control playback speed</strong> and navigate through moves.</li>
+      <li><strong>Track outcomes</strong> for each puzzle (win/lose) automatically.</li>
+      <li><strong>Inspect decisions</strong> via an interactive visualization of the solver’s reasoning.</li>
+    </ul>
+  </section>
+
+  <section class="key-features">
+    <h2>Project Structure</h2>
+    <ul>
+      <li><strong>Frontend:</strong> Next.js React application with interactive visualization components.</li>
+      <li><strong>Backend:</strong> FastAPI Python service housing the Minesweeper solver algorithms.</li>
+      <li><strong>Containerization:</strong> Docker setup for easy deployment and consistent environments.</li>
+    </ul>
+  </section>
+
+  <section class="tech-impl">
+    <h2>Technical Implementation</h2>
+    <ul class="indent-list">
+      <li><strong>Containerization:</strong> services are Dockerized for one-command, reproducible setup.</li>
+      <li><strong>API flow:</strong> the frontend requests puzzle generation and receives solver moves from the FastAPI backend.</li>
+      <li><strong>Real-time updates:</strong> moves stream to the UI and are rendered step-by-step for clear playback.</li>
+      <li><strong>Controls:</strong> speed adjustment and move navigation are handled client-side for smooth interaction.</li>
+    </ul>
+  </section>
+
+  <p><a href="https://github.com/alexajb2/Alex-AI-minesweeper-UI" class="github-link" target="_blank" rel="noopener">View on GitHub</a></p>
+</main>

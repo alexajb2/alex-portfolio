@@ -23,6 +23,31 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- --- Portfolio image sizing overrides (keep consistent sizes & shrink images) --- -->
+  <style>
+    /* Keep every project card the same height and shrink the image to fit */
+    .project-img {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+    @media (min-width: 580px) { .project-img { height: 200px; } }
+    @media (min-width: 1024px) { .project-img { height: 220px; } }
+
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;          /* <— shrink to fit */
+      background: var(--eerie-black-1);
+      transition: transform var(--transition-1);
+    }
+    /* Keep your nice hover zoom but less aggressive since we're containing */
+    .project-item > a:hover img { transform: scale(1.02); }
+  </style>
 </head>
 
 <body>
@@ -96,20 +121,6 @@
           <li class="contact-item">
 
             <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1982-06-23">April 5, 2004</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
 
@@ -128,6 +139,12 @@
         <ul class="social-list">
 
           <li class="social-item">
+            <a href="https://github.com/alexajb2" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
             <a href="https://www.linkedin.com/in/alexander-jiro-brown/" class="social-link">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
@@ -138,10 +155,6 @@
       </div>
 
     </aside>
-
-
-
-
 
     <!--
       - #main-content
@@ -170,20 +183,12 @@
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
-          </li>
-
-          <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Contact</button>
           </li>
 
         </ul>
 
       </nav>
-
-
-
-
 
       <!--
         - #ABOUT
@@ -198,15 +203,12 @@
         <section class="about-text">
           <p>
             I am a passionate developer in the Bay Area with expertise in machine learning, AI, and data analysis. As a recent graduate, I am eager to apply my skills in a professional setting and contribute to innovative projects.
-
-
           </p>
 
           <p>
             Outside software development, I like to keep up with the latest tech developments, strategy games, and climbing.
           </p>
         </section>
-
 
         <!--
           - service
@@ -331,10 +333,6 @@
 
       </article>
 
-
-
-
-
       <!--
         - #RESUME
       -->
@@ -401,7 +399,7 @@
 
               <h4 class="h4 timeline-item-title">Full Stack Web Developer</h4>
 
-              <span>2015 — Present</span>
+              <span>2023 — 2025</span>
 
               <p class="timeline-text">
                 Built full-stack web solutions using Laravel, PHP, JavaScript, and CSS on an MVC framework. 
@@ -415,7 +413,7 @@
 
               <h4 class="h4 timeline-item-title">Programming Learning Assistant</h4>
 
-              <span>2013 — 2015</span>
+              <span>2024 — 2025</span>
 
               <p class="timeline-text">
                 Mentored students in UCI's Introduction to Programming course, strengthening their proficiency in Python and problem-solving. 
@@ -428,7 +426,7 @@
 
               <h4 class="h4 timeline-item-title">Machine Learning Research Assistant</h4>
 
-              <span>2010 — 2013</span>
+              <span>2024 — 2025</span>
 
               <p class="timeline-text">
                 Collaborated with a postdoctoral researcher in thermal energy systems. 
@@ -537,17 +535,11 @@
           </div>
         </div>
 
-
       </article>
-
-
-
-
 
       <!--
         - #PORTFOLIO
       -->
-
       <article class="portfolio" data-page="portfolio">
 
         <header>
@@ -556,425 +548,159 @@
 
         <section class="projects">
 
+          <!-- Top filter buttons -->
           <ul class="filter-list">
-
             <li class="filter-item">
               <button class="active" data-filter-btn>All</button>
             </li>
-
             <li class="filter-item">
-              <button data-filter-btn>Web design</button>
+              <button data-filter-btn>Personal</button>
             </li>
-
             <li class="filter-item">
-              <button data-filter-btn>Applications</button>
+              <button data-filter-btn>Capstone</button>
             </li>
-
             <li class="filter-item">
-              <button data-filter-btn>Web development</button>
+              <button data-filter-btn>AI/ML</button>
             </li>
-
           </ul>
 
+          <!-- Mobile select (kept as-is) -->
           <div class="filter-select-box">
-
             <button class="filter-select" data-select>
-
               <div class="select-value" data-selecct-value>Select category</div>
-
               <div class="select-icon">
                 <ion-icon name="chevron-down"></ion-icon>
               </div>
-
             </button>
 
             <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web design</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Applications</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web development</button>
-              </li>
-
+              <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>Personal</button></li>
+              <li class="select-item"><button data-select-item>Capstone</button></li>
+              <li class="select-item"><button data-select-item>AI/ML</button></li>
             </ul>
-
           </div>
 
+          <!-- Project grid -->
           <ul class="project-list">
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
+            <!-- CupBot RL (AI/ML + Personal) -->
+            <li class="project-item active" data-filter-item
+                data-category="ai/ml"
+                data-categories="ai/ml personal">
+              <a href="#"
+                data-modal-src="projects/cupbot.partial.html"
+                class="project-link">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/cuphead_avatar.png" alt="CupBot RL cover" loading="lazy">
+                </figure>
+                <h3 class="project-title">CupBot RL</h3>
+                <p class="project-category">Reinforcement Learning</p>
+              </a>
+            </li>
+
+
+            <!-- AI Body Camera (Capstone) -->
+            <li class="project-item active" data-filter-item
+                data-category="capstone"
+                data-categories="capstone">
+              <a href="#"
+                data-modal-src="projects/bodycam.partial.html"
+                class="project-link">
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+                  <img src="./assets/images/body_cam.png" alt="AI Body Camera cover" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Finance</h3>
-
-                <p class="project-category">Web development</p>
-
+                <h3 class="project-title">AI Body Camera</h3>
+                <p class="project-category">Capstone Project</p>
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
+            <!-- TES ML Research (AI/ML) -->
+            <li class="project-item active" data-filter-item
+                data-category="ai/ml"
+                data-categories="ai/ml">
+              <a href="#"
+                data-modal-src="projects/tes-ml.partial.html"
+                class="project-link">
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
+                  <img src="./assets/images/tes_img.png" alt="Thermal Energy Storage ML research cover" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Orizon</h3>
-
-                <p class="project-category">Web development</p>
-
+                <h3 class="project-title">TES ML Research</h3>
+                <p class="project-category">Machine Learning</p>
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
+            <!-- Minesweeper AI Solver (AI/ML + Personal) -->
+            <li class="project-item active" data-filter-item
+                data-category="ai/ml"
+                data-categories="ai/ml personal">
+              <a href="#"
+                data-modal-src="projects/minesweeper.partial.html"
+                class="project-link">
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
+                  <img src="./assets/images/minesweeper_img.png" alt="Minesweeper AI Solver cover" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Fundo</h3>
-
-                <p class="project-category">Web design</p>
-
+                <h3 class="project-title">Minesweeper AI Solver</h3>
+                <p class="project-category">Artificial Intelligence</p>
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
+            <!-- Graph Analysis (Personal) -->
+            <li class="project-item active" data-filter-item
+                data-category="personal"
+                data-categories="personal">
+              <a href="#"
+                data-modal-src="projects/graph-analysis.partial.html"
+                class="project-link">
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
+                  <img src="./assets/images/graph_img.jpg" alt="Graph Analysis cover" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Brawlhalla</h3>
-
-                <p class="project-category">Applications</p>
-
+                <h3 class="project-title">Graph Analysis</h3>
+                <p class="project-category">Graph Algorithms</p>
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">DSM.</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">MetaSpark</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Summary</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Task Manager</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Arrival</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
 
           </ul>
 
         </section>
 
-      </article>
-
-
-
-
-
-      <!--
-        - #BLOG
-      -->
-
-      <article class="blog" data-page="blog">
-
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
-
-                  <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
-
-                  <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
+        <!-- Project Modal (content injected via JS) -->
+        <div class="project-modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true">
+          <div class="project-modal__backdrop" id="projectModalBackdrop"></div>
+          <div class="project-modal__dialog" role="document" aria-labelledby="projectModalTitle">
+            <header class="project-modal__header">
+              <h3 class="h3" id="projectModalTitle">Project</h3>
+              <button class="project-modal__close" id="closeProjectModal" aria-label="Close">&times;</button>
+            </header>
+            <div class="project-modal__content" id="projectModalContent">
+              <!-- Injected HTML goes here (e.g., projects/cupbot.partial.html) -->
+            </div>
+          </div>
+        </div>
 
       </article>
-
-
-
-
 
       <!--
         - #CONTACT
@@ -989,31 +715,18 @@
         <section class="mapbox" data-mapbox>
           <figure>
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d203157.97815188687!2d-122.00051082710594!3d37.286994183868316!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcae48af93ff5%3A0xb99d8c0aca9f717b!2sSan%20Jose%2C%20CA!5e0!3m2!1sen!2sus!4v1757386747677!5m2!1sen!2sus"
-              width="400" height="300" loading="lazy"></iframe>
+                  width="400" height="300" loading="lazy"></iframe>
           </figure>
         </section>
 
         <section class="contact-form">
+          <h3 class="h3 form-title">Get in Touch</h3>
 
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
-
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
-
-          </form>
-
+          <div class="contact-links">
+            <a href="mailto:alexjirocoll@gmail.com">📧 Email</a>
+            <a href="https://github.com/alexajb2" target="_blank">💻 GitHub</a>
+            <a href="https://www.linkedin.com/in/alexander-jiro-brown/" target="_blank">💼 LinkedIn</a>
+          </div>
         </section>
 
       </article>
@@ -1021,11 +734,6 @@
     </div>
 
   </main>
-
-
-
-
-
 
   <!--
     - custom js link
@@ -1038,6 +746,43 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+  <!-- Patch filtering to support multiple categories without touching your existing file -->
+  <script>
+    (function () {
+      const filterBtns = document.querySelectorAll('[data-filter-btn]');
+      const selectItems = document.querySelectorAll('[data-select-item]');
+      const items = document.querySelectorAll('[data-filter-item]');
+
+      function applyMultiFilter(selectedLabel) {
+        const sel = selectedLabel.toLowerCase().trim();
+        items.forEach(item => {
+          if (sel === 'all') {
+            item.classList.add('active');
+            return;
+          }
+          const primary = (item.dataset.category || '').toLowerCase();
+          const multi = (item.dataset.categories || primary).toLowerCase().split(/\s+/);
+          if (multi.includes(sel)) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          applyMultiFilter(this.innerText);
+        });
+      });
+
+      selectItems.forEach(opt => {
+        opt.addEventListener('click', function () {
+          applyMultiFilter(this.innerText);
+        });
+      });
+    })();
+  </script>
 </body>
 
 </html>

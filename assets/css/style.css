@@ -1969,3 +1969,292 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 /* Optional: prevent background scroll when modal open */
 html.modal-open, body.modal-open { overflow: hidden; }
+
+.contact-links a {
+  font-size: 19px;
+  color: #ffcc66;
+  text-decoration: none; /* optional, removes underline */
+}
+
+/* === Project modal (reuses resume modal vibe) === */
+.project-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001; /* above resume modal */
+}
+.project-modal[aria-hidden="false"] { display: flex; }
+
+.project-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.project-modal__dialog {
+  position: relative;
+  background: var(--eerie-black-2);
+  color: inherit;
+  width: min(1200px, 92vw);
+  max-height: 92vh;
+  margin: 2rem;
+  border: 1px solid var(--jet);
+  border-radius: 16px;
+  box-shadow: var(--shadow-5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.project-modal__close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.project-modal__content {
+  padding: 20px;
+  overflow: auto;
+  height: calc(92vh - 64px); /* header height buffer */
+}
+
+/* Make links inside modals match your accent */
+.project-modal a { color: #ffcc66; }
+.project-modal a:hover { text-decoration: underline; }
+
+
+/* === Project modal typography & utilities === */
+.project-modal__content { color: var(--white-2); }           /* make all text white-ish */
+.project-modal__content h1,
+.project-modal__content h2,
+.project-modal__content h3,
+.project-modal__content h4 { color: var(--white-2); }
+
+.project-modal__content a { color: #ffcc66; }                /* your accent links */
+.project-modal__content a:hover { text-decoration: underline; }
+
+.project-modal__content p,
+.project-modal__content li { color: var(--white-2); }        /* ensure paragraphs & list items are white */
+
+.project-modal__content .image-caption,
+.project-modal__content figcaption { color: var(--light-gray); }
+
+/* Basic spacing & media helpers for reused project content */
+.project-modal__content ul { margin: 0 0 12px 18px; line-height: 1.6; }
+.project-modal__content img { max-width: 100%; height: auto; border-radius: 12px; display: block; }
+
+/* 16:9 responsive embeds */
+.embed-16x9 { position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; }
+.embed-16x9 iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+
+.key-features, 
+.key-features p,
+.key-features li {
+  color: rgba(226, 232, 240, 0.89);
+}
+
+
+.key-features strong,
+.key-features b {
+  font-weight: 800;                 /* heavier than default bold */
+  letter-spacing: .2px;             /* subtle crispness */
+  color: #ffffff;                   /* matches your link accent */
+  padding: 0 .05em;                 /* keeps the highlight tidy */
+  border-radius: 2px;
+}
+
+/* Make any partial with .stack-vertical lay out top-to-bottom */
+.stack-vertical {
+  display: block !important;              /* kill grid/flex/table */
+  columns: auto !important;               /* kill multi-column */
+  column-count: initial !important;
+}
+
+.stack-vertical > * {
+  display: block !important;
+  width: 100% !important;
+  float: none !important;
+  grid-template-columns: none !important; /* in case a child re-enables grid */
+  flex: none !important;
+}
+
+
+/* Compact the gap from header to content (scoped to project modals) */
+.project-modal__content .project-header--compact { margin-bottom: 10px; }
+.project-modal__content .project-header--compact h1 { margin-bottom: 4px; }
+.project-modal__content .project-header--compact p { margin: 0; }
+
+/* Ensure AI Algorithm bullets look like normal text (not bright/bold) */
+.project-modal__content .ai-algorithm li,
+.project-modal__content .ai-algorithm p { color: var(--white-2); font-weight: 400; }
+.project-modal__content .ai-algorithm li strong { font-weight: 600; color: var(--white-2); } /* safety if any <strong> remains */
+
+/* Indent & tidy the Technical Implementation list */
+.project-modal__content .tech-impl .indent-list { margin-left: 26px; }
+.project-modal__content .tech-impl .indent-list li { margin: 0 0 6px 0; }
+
+/* Keep the vertical stacking override */
+.stack-vertical { display: block !important; columns: auto !important; column-count: initial !important; }
+.stack-vertical > * { display: block !important; width: 100% !important; float: none !important; grid-template-columns: none !important; flex: none !important; }
+
+/* Vertical stacking override (you already have this) */
+.stack-vertical { display: block !important; columns: auto !important; column-count: initial !important; }
+.stack-vertical > * { display: block !important; width: 100% !important; float: none !important; grid-template-columns: none !important; flex: none !important; }
+
+/* Equation & pseudocode readability */
+.project-modal__content .equation-box {
+  border: 1px solid rgba(255,255,255,.16);
+  border-left: 4px solid #ffcc66;
+  background: rgba(255,255,255,.02);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 8px 0 12px 0;
+}
+.project-modal__content .equation-box figcaption {
+  font-size: .92rem;
+  opacity: .9;
+  margin-bottom: 4px;
+}
+.project-modal__content .equation-box code {
+  font-weight: 600;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.project-modal__content .pseudocode {
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.03);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 8px 0 12px 0;
+}
+
+.project-modal__content .note-list { margin-left: 26px; }
+.project-modal__content .note-list li { margin: 0 0 6px 0; }
+
+/* Optional: slightly tighten header → content spacing in modals */
+.project-modal__content header { margin-bottom: 10px; }
+.project-modal__content header h1 { margin-bottom: 4px; }
+.project-modal__content header p { margin: 0; }
+
+/* Keep your key-features emphasis from earlier */
+.key-features, .key-features p, .key-features li { color: rgba(226,232,240,0.89); }
+.key-features strong, .key-features b { font-weight: 800; letter-spacing: .2px; color: #ffffff; padding: 0 .05em; border-radius: 2px; }
+
+/* Ensure correct typography & color for regular text in this partial */
+.project-modal__content .tes-ml-partial,
+.project-modal__content .tes-ml-partial p,
+.project-modal__content .tes-ml-partial li {
+  color: var(--white-2);
+  font-weight: 400;
+  font-family: 'Poppins','Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+/* Section spacing for readability (compact but clear) */
+.project-modal__content .tes-ml-partial section + section {
+  margin-top: 18px;           /* extra breathing room between sections */
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.06);  /* subtle separator */
+}
+
+/* Headings tighten-up */
+.project-modal__content .project-header--compact { margin-bottom: 10px; }
+.project-modal__content .project-header--compact h1 { margin-bottom: 4px; }
+.project-modal__content .project-header--compact p { margin: 0; }
+.project-modal__content .tes-ml-partial h2 { margin: 8px 0 6px; }
+
+/* Smaller, centered images (full-width on small screens) */
+.project-modal__content .tes-ml-partial .project-image--sm {
+  max-width: 68%;
+  margin: 8px auto 10px;
+  display: block;
+  border-radius: 12px;
+}
+@media (max-width: 640px) {
+  .project-modal__content .tes-ml-partial .project-image--sm { max-width: 100%; }
+}
+
+/* Table polish (readable on dark modal) */
+.project-modal__content .tes-ml-partial table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 14px;
+  font-size: 0.95rem;
+}
+.project-modal__content .tes-ml-partial th,
+.project-modal__content .tes-ml-partial td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.project-modal__content .tes-ml-partial th { font-weight: 600; }
+
+/* Keep your existing vertical stacking override */
+.stack-vertical { display: block !important; columns: auto !important; column-count: initial !important; }
+.stack-vertical > * { display: block !important; width: 100% !important; float: none !important; grid-template-columns: none !important; flex: none !important; }
+
+/* Preserve your key-features emphasis */
+.key-features,
+.key-features p,
+.key-features li { color: rgba(226,232,240,0.89); }
+.key-features strong,
+.key-features b { font-weight: 800; letter-spacing: .2px; color: #ffffff; padding: 0 .05em; border-radius: 2px; }
+
+/* Typography: make sure regular text uses the right color & font */
+.project-modal__content .bodycam-partial,
+.project-modal__content .bodycam-partial p,
+.project-modal__content .bodycam-partial li,
+.project-modal__content .cupbot-partial,
+.project-modal__content .cupbot-partial p,
+.project-modal__content .cupbot-partial li {
+  color: var(--white-2);
+  font-weight: 400;
+  font-family: 'Poppins','Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+/* Tighter header gap (consistent with others) */
+.project-modal__content .project-header--compact { margin-bottom: 10px; }
+.project-modal__content .project-header--compact h1 { margin-bottom: 4px; }
+.project-modal__content .project-header--compact p { margin: 0; }
+
+/* Section spacing + subtle separators for readability */
+.project-modal__content .bodycam-partial section + section,
+.project-modal__content .cupbot-partial section + section {
+  margin-top: 18px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Smaller, centered images (full width on small screens) */
+.project-modal__content .project-image--sm {
+  max-width: 68%;
+  margin: 8px auto 10px;
+  display: block;
+  border-radius: 12px;
+}
+@media (max-width: 640px) {
+  .project-modal__content .project-image--sm { max-width: 100%; }
+}
+
+/* Caption tone */
+.project-modal__content .image-caption { color: var(--light-gray); }
+
+/* Keep vertical stacking override you’re already using */
+.stack-vertical { display: block !important; columns: auto !important; column-count: initial !important; }
+.stack-vertical > * { display: block !important; width: 100% !important; float: none !important; grid-template-columns: none !important; flex: none !important; }
+
+/* Preserve your key-features emphasis */
+.key-features, .key-features p, .key-features li { color: rgba(226,232,240,0.89); }
+.key-features strong, .key-features b { font-weight: 800; letter-spacing: .2px; color: #ffffff; padding: 0 .05em; border-radius: 2px; }
