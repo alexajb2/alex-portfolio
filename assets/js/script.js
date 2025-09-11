@@ -192,3 +192,59 @@ function onResumeEsc(e) {
 openResumeModalBtn?.addEventListener('click', openResumeModal);
 closeResumeModalBtn?.addEventListener('click', closeResumeModal);
 resumeBackdrop?.addEventListener('click', closeResumeModal);
+
+
+// === Project modal ===
+const projectModal = document.getElementById('projectModal');
+const projectContent = document.getElementById('projectModalContent');
+const projectTitleEl = document.getElementById('projectModalTitle');
+const closeProjectModalBtn = document.getElementById('closeProjectModal');
+const projectBackdrop = document.getElementById('projectModalBackdrop');
+
+function openProjectModal(html, titleText) {
+  if (!projectModal) return;
+  projectContent.innerHTML = html || '';
+  projectTitleEl.textContent = titleText || 'Project';
+  projectModal.setAttribute('aria-hidden', 'false');
+  document.documentElement.classList.add('modal-open');
+  document.body.classList.add('modal-open');
+  closeProjectModalBtn?.focus();
+  document.addEventListener('keydown', onProjectEsc);
+}
+
+function closeProjectModal() {
+  if (!projectModal) return;
+  projectModal.setAttribute('aria-hidden', 'true');
+  projectContent.innerHTML = '';
+  document.documentElement.classList.remove('modal-open');
+  document.body.classList.remove('modal-open');
+  document.removeEventListener('keydown', onProjectEsc);
+}
+
+function onProjectEsc(e) {
+  if (e.key === 'Escape') closeProjectModal();
+}
+
+// Intercept clicks on project cards with data-modal-src
+document.addEventListener('click', async (e) => {
+  const link = e.target.closest('a.project-link');
+  if (!link) return;
+
+  const partialUrl = link.getAttribute('data-modal-src');
+  if (!partialUrl) return; // no partial -> let it navigate normally
+
+  e.preventDefault(); // use modal instead of navigation
+  try {
+    const res = await fetch(partialUrl, { cache: 'no-store' });
+    if (!res.ok) throw new Error('Failed to load project content');
+    const html = await res.text();
+    const title = link.querySelector('.project-title')?.textContent?.trim();
+    openProjectModal(html, title);
+  } catch (err) {
+    // Fallback: navigate to the real page
+    window.location.href = link.href;
+  }
+});
+
+closeProjectModalBtn?.addEventListener('click', closeProjectModal);
+projectBackdrop?.addEventListener('click', closeProjectModal);

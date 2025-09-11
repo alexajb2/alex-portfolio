@@ -1,47 +1,59 @@
-<!-- AI Body Camera — modal partial content only -->
-<div class="project-hero" style="margin-bottom:16px;">
-  <img src="./assets/images/body_cam.png" alt="AI Body Camera cover">
-</div>
+<header class="project-header project-header--compact">
+  <h1>AI Body Camera</h1>
+  <p>Local ML system for tagging & purging police body-worn camera footage</p>
+</header>
 
-<section class="project-body">
-  <h4 style="margin:8px 0 10px;">Overview</h4>
-  <p>
-    Collaborated with the Signal Hill Police Department to build AI-driven software that identifies and
-    categorizes police body-worn camera footage eligible for purging. The system combines transcription,
-    text-based, and image-based ML models all run locally to organize large backlogs of untagged videos.
-  </p>
+<main class="stack-vertical bodycam-partial">
+  <figure class="image-container">
+    <img src="./assets/images/body_cam.png" alt="AI Body Camera cover" class="project-image project-image--sm">
+  </figure>
 
-  <h4 style="margin:16px 0 10px;">Tech Stack</h4>
-  <ul>
-    <li>PyTorch, TensorFlow</li>
-    <li>faster-whisper (ASR), TorchAudio</li>
-    <li>OpenCV, TorchVision</li>
-    <li>Python, Flask, Docker</li>
-  </ul>
+  <section>
+    <h2>Overview</h2>
+    <p>
+      Collaborated with the Signal Hill Police Department to build AI-driven software that identifies and
+      categorizes police body-worn camera footage eligible for purging. The system combines transcription,
+      text-based, and image-based ML models—run locally—to organize large backlogs of untagged videos.
+    </p>
+  </section>
 
-  <section class="key-features">
-    <h4 style="margin:16px 0 10px;">Key Features</h4>
+  <section>
+    <h2>Tech Stack</h2>
     <ul>
-      <li><strong>Frontend:</strong> Electron framework with React library. Interface for police to upload videos, classify videos, view embedded and labeled videos, and optionally manually review/purge videos.</li>
-      <li><strong>Transcript Generator:</strong> faster-whisper with compression/volume/speech-pattern thresholds for higher ASR accuracy.</li>
-      <li><strong>Transformer Model:</strong> Event Classification based on transcripts, taking time positional text. Using GPT synthesis for a larger volumne of training data.</li>
-      <li><strong>ImageBind Model:</strong> Multimodal model developed by Meta AI that learns a joint embedding space across multiple data types: Images, audio, text, depth, thermal, and IMU (motion) data.</li>
-      <li><strong>Feature Similarity Model:</strong> Efficientnet is a CNN ML model trained to compare the video's visual similarity to Car Inspection Videos.</li>
-      <li><strong>Ensemble Model:</strong> Decision Tree Classifier combining features from all model outputs for final classification.</li>
+      <li>PyTorch, TensorFlow</li>
+      <li>faster-whisper (ASR), TorchAudio</li>
+      <li>OpenCV, TorchVision</li>
+      <li>Python, Flask, Docker</li>
     </ul>
   </section>
 
-  <h4 style="margin:16px 0 10px;">Applications</h4>
-  <ul>
-    <li>Tagging and purging backlogs of untagged police videos.</li>
-    <li>AI suggestions for manual tagging workflows.</li>
-    <li>Generalizable video categorization for search/filter systems.</li>
-  </ul>
+  <section class="key-features">
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>Frontend:</strong> Electron + React interface for upload, classification, embedded playback, and optional manual review/purge.</li>
+      <li><strong>Transcript Generator:</strong> faster-whisper with compression/volume/speech-pattern thresholds for improved ASR accuracy.</li>
+      <li><strong>Transformer Model:</strong> event classification over transcript tokens (with GPT-synthesized training data).</li>
+      <li><strong>ImageBind Model:</strong> multimodal joint embedding across image/audio/text/depth/thermal/IMU.</li>
+      <li><strong>Feature Similarity:</strong> EfficientNet CNN trained to detect car-inspection-like visuals.</li>
+      <li><strong>Ensemble:</strong> decision-tree combiner over all model outputs for the final tag.</li>
+    </ul>
+  </section>
 
-  <h4 style="margin:16px 0 8px;">Links</h4>
-  <p>
-	<a href="https://ics.uci.edu/expo/" target="_blank" rel="noopener">UCI ICS Expo</a>
-    <a href="https://ics.uci.edu/wp-content/uploads/2025/06/Image-8.jpg" target="_blank" rel="noopener">Poster at UCI ICS Expo 2025</a>
-	<a href="https://ics.uci.edu/wp-content/uploads/2025/06/Image-3.jpg" target="_blank" rel="noopener">Picture (bottom right) winning 1st place Computer Science Prize</a>
-  </p>
-</section>
+  <section>
+    <h2>Applications</h2>
+    <ul>
+      <li>Tagging and purging backlogs of untagged police videos.</li>
+      <li>AI suggestions for manual tagging workflows.</li>
+      <li>Generalizable video categorization for search/filter systems.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Links</h2>
+    <ul>
+      <li><a href="https://ics.uci.edu/expo/" target="_blank" rel="noopener">UCI ICS Expo</a></li>
+      <li><a href="https://ics.uci.edu/wp-content/uploads/2025/06/Image-8.jpg" target="_blank" rel="noopener">Poster at UCI ICS Expo 2025</a></li>
+      <li><a href="https://ics.uci.edu/wp-content/uploads/2025/06/Image-3.jpg" target="_blank" rel="noopener">Photo (bottom right) winning 1st place CS Prize</a></li>
+    </ul>
+  </section>
+</main>

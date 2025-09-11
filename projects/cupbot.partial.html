@@ -1,68 +1,75 @@
-<!-- CupBot RL — modal partial content only -->
-<div class="project-hero" style="margin-bottom:16px;">
-  <img src="./assets/images/cuphead_avatar.png" alt="CupBot RL cover">
-</div>
+<header class="project-header project-header--compact">
+  <h1>CupBot RL</h1>
+  <p>DQN + YOLO agent for the Root Pack boss in <em>Cuphead</em></p>
+</header>
 
-<section class="project-body">
-  <h4 style="margin:8px 0 10px;">Overview</h4>
-  <p>
-    This project trains a reinforcement learning (RL) agent to play <em>Cuphead</em>, targeting the Root Pack boss.
-    A YOLO-based vision pipeline parses game frames; a Deep-Q Network (DQN) learns actions from the observed state.
-    The goal is to handle a fast, visually noisy environment and reliably defeat the boss.
-  </p>
-
-  <h4 style="margin:16px 0 10px;">Tech Stack</h4>
-  <ul>
-    <li>Python, NumPy</li>
-    <li>PyTorch (DQN with replay buffer &amp; target network)</li>
-    <li>OpenCV + YOLO (state extraction from frames)</li>
-  </ul>
-
-  <section class="key-features">
-    <h4 style="margin:16px 0 10px;">Key Features</h4>
-    <ul>
-      <li><strong>Deep Q-Learning:</strong> Off-policy value learning with experience replay.</li>
-      <li><strong>Object Detection:</strong> YOLO-driven detection for boss, projectiles, and player state.</li>
-      <li><strong>Reward Shaping:</strong> Custom rewards &amp; evaluation metrics to track improvement.</li>
-      <li><strong>Imitation Learning (WIP):</strong> Bootstrapping via human gameplay demos.</li>
-    </ul>
-  </section>
-  
-
-  <h4 style="margin:16px 0 10px;">Videos</h4>
-  <div style="display:grid; gap:14px;">
-    <div>
-      <div class="embed-16x9">
-        <iframe src="https://www.youtube.com/embed/LerQo3rzL9k?si=D9uE18ra_T_wfsAR"
-                title="CupBot AI beats The Root Pack (No Talking)"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <p class="image-caption" style="margin:6px 0 0;">CupBot AI beats The Root Pack (No Talking)</p>
-    </div>
-
-    <div>
-      <div class="embed-16x9">
-        <iframe src="https://www.youtube.com/embed/LJXqEdy_ocg?si=0piAyGilAccg_3GJ"
-                title="CupBot AI Implementation"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <p class="image-caption" style="margin:6px 0 0;">CupBot AI Implementation</p>
-    </div>
-  </div>
-
-  <h4 style="margin:16px 0 10px;">Training Results</h4>
-  <figure style="margin:0 0 10px;">
-    <img src="./assets/images/final_training_curve.png"
-         alt="Training Reward Graph">
-    <figcaption class="image-caption" style="margin-top:6px;">
-      CupBot's 50-episode moving average reward progression during training
-    </figcaption>
+<main class="stack-vertical cupbot-partial">
+  <figure class="image-container">
+    <img src="./assets/images/cuphead_avatar.png" alt="CupBot RL cover" class="project-image project-image--sm">
   </figure>
 
-  <h4 style="margin:16px 0 8px;">Links</h4>
-  <p>
-    <a href="https://simonxcao.github.io/bots" target="_blank" rel="noopener">Project page / Repo</a>
-  </p>
-</section>
+  <section>
+    <h2>Overview</h2>
+    <p>
+      Trains a reinforcement learning agent to play <em>Cuphead</em>, targeting the Root Pack boss. A YOLO-based vision
+      pipeline parses frames; a Deep-Q Network (DQN) learns actions from the observed state to handle a fast, visually
+      noisy environment and reliably defeat the boss.
+    </p>
+  </section>
+
+  <section>
+    <h2>Tech Stack</h2>
+    <ul>
+      <li>Python, NumPy</li>
+      <li>PyTorch (DQN with replay buffer &amp; target network)</li>
+      <li>OpenCV + YOLO (state extraction from frames)</li>
+    </ul>
+  </section>
+
+  <section class="key-features">
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>Deep Q-Learning:</strong> off-policy value learning with experience replay.</li>
+      <li><strong>Object Detection:</strong> YOLO-driven detection for boss, projectiles, and player state.</li>
+      <li><strong>Reward Shaping:</strong> custom rewards &amp; evaluation metrics to track improvement.</li>
+      <li><strong>Imitation Learning (WIP):</strong> bootstrapping via human gameplay demos.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Videos</h2>
+
+    <figure class="embed-16x9">
+      <iframe
+        src="https://www.youtube.com/embed/LerQo3rzL9k?si=D9uE18ra_T_wfsAR"
+        title="CupBot AI beats The Root Pack (No Talking)"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </figure>
+    <p class="image-caption">CupBot AI beats The Root Pack (No Talking)</p>
+
+    <figure class="embed-16x9" style="margin-top:10px;">
+      <iframe
+        src="https://www.youtube.com/embed/LJXqEdy_ocg?si=0piAyGilAccg_3GJ"
+        title="CupBot AI Implementation"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </figure>
+    <p class="image-caption">CupBot AI Implementation</p>
+  </section>
+
+  <section>
+    <h2>Training Results</h2>
+    <figure class="image-container">
+      <img src="./assets/images/final_training_curve.png" alt="Training reward progression" class="project-image project-image--sm">
+      <figcaption class="image-caption">50-episode moving-average reward progression during training</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Links</h2>
+    <ul>
+      <li><a href="https://simonxcao.github.io/bots" target="_blank" rel="noopener">Project page / Repo</a></li>
+    </ul>
+  </section>
+</main>
