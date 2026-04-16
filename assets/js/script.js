@@ -140,23 +140,39 @@ for (let i = 0; i < formInputs.length; i++) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
+function navigateToPage(targetPage) {
+  for (let i = 0; i < pages.length; i++) {
+    if (targetPage === pages[i].dataset.page) {
+      pages[i].classList.add("active");
+      navigationLinks[i].classList.add("active");
+      window.scrollTo(0, 0);
+    } else {
+      pages[i].classList.remove("active");
+      navigationLinks[i].classList.remove("active");
+    }
+  }
+}
+
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
-
+    const page = this.innerHTML.toLowerCase();
+    history.pushState(null, "", "#" + page);
+    navigateToPage(page);
   });
 }
+
+// navigate on hash change (back/forward buttons)
+window.addEventListener("hashchange", function () {
+  const page = window.location.hash.slice(1).toLowerCase();
+  if (page) navigateToPage(page);
+});
+
+// navigate on initial load if hash is present
+(function () {
+  const page = window.location.hash.slice(1).toLowerCase();
+  if (page) navigateToPage(page);
+})();
 
 // === Resume modal ===
 const resumeModal = document.getElementById('resumeModal');
