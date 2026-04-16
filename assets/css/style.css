@@ -544,6 +544,8 @@ main {
 
 .service-icon-box img { margin: auto; }
 
+.service-icon-box ion-icon { display: block; margin: auto; }
+
 .service-content-box { text-align: center; }
 
 .service-item-title { margin-bottom: 7px; }
@@ -2249,7 +2251,8 @@ html.modal-open, body.modal-open { overflow: hidden; }
 }
 
 /* Caption tone */
-.project-modal__content .image-caption { color: var(--light-gray); }
+.project-modal__content .image-caption,
+.project-modal__content figure figcaption { color: var(--light-gray); text-align: center; }
 
 /* Keep vertical stacking override you’re already using */
 .stack-vertical { display: block !important; columns: auto !important; column-count: initial !important; }

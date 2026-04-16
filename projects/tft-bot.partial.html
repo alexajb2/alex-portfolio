@@ -1,0 +1,93 @@
+<header class="project-header project-header--compact">
+  <h1>TFT Yordles Bot</h1>
+  <p>OCR + object detection bot for Teamfight Tactics Set 16</p>
+</header>
+
+<main class="stack-vertical tft-bot-partial">
+  <figure class="image-container">
+    <img src="./assets/images/tft_bot_ocr_annotated.png" alt="Annotated screenshot showing all OCR regions, object detection boxes, and bot UI interactions" class="project-image project-image--sm">
+    <figcaption class="image-caption">Bot vision overlay: OCR regions (green), buttons (yellow), item hover (cyan), unit info probe (purple), and RF-DETR object detection (red)</figcaption>
+  </figure>
+
+  <section>
+    <h2>Background</h2>
+    <p>
+      Teamfight Tactics is Riot Games' auto-battler — eight players draft, position, and equip champions across 30+ rounds of PvP and PvE combat. Each match mixes economy management, shop rerolls, unit starring, item crafting, trait synergies, augment selection, and adaptive positioning.
+    </p>
+    <p>
+      I picked up the game in Set 16 and hit Masters (roughly the top 0.5% of ranked players) in my first set. With two days left in the competitive season, I spent ~50 hours building a bot that could force a Yordle composition entirely through screen reading — no memory injection, no private APIs.
+    </p>
+    <p>
+      Development was AI-assisted. My focus was the game-state model, per-stage decision logic, and iterative tuning from observed runs rather than boilerplate. The project totals ~10,000 lines of Python, with the core loop above 5,300.
+    </p>
+  </section>
+
+  <section>
+    <h2>Tech Stack</h2>
+    <ul>
+      <li>Python, EasyOCR (GPU), OpenCV, PyAutoGUI</li>
+      <li>RF-DETR and YOLOv11 for yordle object detection</li>
+      <li>Custom region editors for board, shop, movement paths, and UI buttons</li>
+      <li>Roboflow for dataset hosting and open-source contribution</li>
+    </ul>
+  </section>
+
+  <section class="key-features">
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>OCR-driven state:</strong> gold, level, XP, round timer, shop units, item names, and client buttons all read through EasyOCR.</li>
+      <li><strong>Yordle object detection:</strong> RF-DETR model trained on 351 hand-drawn bounding boxes across 10 yordle classes, spread over 29 screenshots.</li>
+      <li><strong>Full game loop:</strong> shop buying, selling, placement, item slamming, econ/leveling decisions, augment handling, and post-game requeueing.</li>
+      <li><strong>Supporting tooling:</strong> interactive editors for defining every screen region, movement path, and unit position.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Dataset &amp; Training</h2>
+    <p>
+      I hand-drew 351 bounding boxes across 10 yordle classes (plus item components) spanning 29 densely annotated screenshots, then published the dataset to Roboflow for open-source use. RF-DETR clearly outperformed YOLOv11 on the small dataset, reaching AP@0.50 above 0.85 within 150 epochs.
+    </p>
+    <figure class="image-container">
+      <img src="./assets/images/tft_bot_training.png" alt="RF-DETR training curves" class="project-image project-image--sm">
+      <figcaption class="image-caption">RF-DETR training metrics over 150 epochs</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Results</h2>
+    <figure class="image-container">
+      <img src="./assets/images/tft_bot_ranked_results.png" alt="Ranked match history showing 8th place finishes at 30+ minutes" class="project-image project-image--sm">
+      <figcaption class="image-caption">Sample of overnight ranked runs — consistent 8ths, most lasting 30+ minutes</figcaption>
+    </figure>
+    <p>
+      The bot ran overnight through the final two days of Set 16 on a Bronze 4 account. Ranked games consistently finished 8th, but most lasted 30+ minutes and cleared every PvE creep round — core survivability, economy, and shop logic held up. The account's ranked MMR had been lifted by manual play before the bot took over, so its ranked opponents were stronger than a fresh account would face. The ~6.8th unranked average was achieved earlier by a rougher version of the bot playing purely on its own (some placements inflated by opponent surrenders), and even the improved build used in ranked still capped out at 8th.
+    </p>
+    <p>
+      The main bottlenecks were OCR latency and occasional misreads. Tasks like positioning, hitting unlock conditions on tempo, selling non-yordles, and itemization often stretched across multiple rounds, where a faster OCR pipeline or better action scheduling could collapse each into a single round — closer to human pacing. With that tempo issue solved, a disciplined one-composition force could reasonably climb into Platinum.
+    </p>
+  </section>
+
+  <section>
+    <h2>Limitations</h2>
+    <ul>
+      <li><strong>OCR latency:</strong> scanning many regions per tick created meaningful delays between actions.</li>
+      <li><strong>Object detection disabled in final trials:</strong> hardware constraints forced OCR-only unit identification via right-click probing during the ranked push.</li>
+      <li><strong>No simulation environment:</strong> TFT offers no API or accelerated simulator, so RL-style parallel training isn't viable — all iteration happened in live games.</li>
+      <li><strong>Single-strategy force:</strong> a rigid composition can't adapt the way a human does, which is also why competing with top players would be genuinely difficult.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Ethics &amp; Scope</h2>
+    <p>
+      Testing was limited to the final days of the season, when low-Elo lobbies are already populated by Riot's own TFT bots as player counts thin out before the next set. Unlike Riot's bots, this one extracted everything through screen OCR, which takes substantially more engineering to reach even basic game awareness.
+    </p>
+    <p>
+      The goal wasn't to beat top players — it was a proof of concept for automating a high-complexity strategy game from pixels alone. The value was in the practical skills: computer vision pipelines, OCR integration, state-machine design, and iterative debugging against live runs.
+    </p>
+  </section>
+
+  <p>
+    <a href="https://universe.roboflow.com/cuphead-pj7jz/tft-set-16-yordles" class="github-link" target="_blank" rel="noopener">TFT_Set_16_Yordles_Object_Detection_Model</a>
+  </p>
+</main>
