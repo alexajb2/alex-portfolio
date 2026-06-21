@@ -2255,6 +2255,21 @@ html.modal-open, body.modal-open { overflow: hidden; }
 .project-modal__content .image-caption,
 .project-modal__content figure figcaption { color: var(--light-gray); text-align: center; }
 
+/* Recognition snippet quote + photo credit */
+.project-modal__content .expo-quote {
+  margin: 8px 0 12px;
+  padding: 8px 14px;
+  border-left: 3px solid var(--orange-yellow-crayola);
+  color: var(--light-gray);
+  font-style: italic;
+}
+.project-modal__content .photo-credit {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.85em;
+  opacity: 0.75;
+}
+
 /* Keep vertical stacking override you’re already using */
 .stack-vertical { display: block !important; columns: auto !important; column-count: initial !important; }
 .stack-vertical > * { display: block !important; width: 100% !important; float: none !important; grid-template-columns: none !important; flex: none !important; }

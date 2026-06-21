@@ -240,10 +240,10 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">AI &amp; Machine Learning</h4>
+                <h4 class="h4 service-item-title">Perception, Robotics &amp; ML</h4>
 
                 <p class="service-item-text">
-                  My core interest is in machine learning, computer vision, and AI systems. I build end-to-end pipelines — from training custom object detection models to designing autonomous agents — and apply agentic AI workflows throughout my development process.
+                  My focus is computer vision and perception — building and evaluating object detection pipelines on real data, currently through ecological camera-trap research detecting wildlife in field footage. I'm working toward robotics and perception systems, with Game AI and reinforcement learning as upcoming coursework and interests, building on prior AI/ML project work.
                 </p>
               </div>
 
@@ -272,10 +272,10 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Programming Projects</h4>
+                <h4 class="h4 service-item-title">Research &amp; Projects</h4>
 
                 <p class="service-item-text">
-                  I consistently work on personal projects to sharpen my skills and explore new ideas. Check out some of my past work in the portfolio section.
+                  My portfolio currently emphasizes research and applied machine learning work. I expect to add more personal projects over time as my graduate research allows. Check out the portfolio section to see what I've been working on.
                 </p>
               </div>
 
@@ -296,10 +296,6 @@
             </button>
 
             <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
               <img src="./assets/images/icon-quote.svg" alt="quote icon">
             </div>
 
@@ -362,7 +358,8 @@
               <span>2025 — Current</span>
 
               <p class="timeline-text">
-                Pursuing a Master of Science in Computer Science with a focus on Machine Learning.
+                Pursuing a Master of Science in Computer Science with a specialization in Computational
+                Perception &amp; Robotics.
               </p>
 
             </li>
@@ -462,22 +459,22 @@
           <div class="resume-modal__backdrop" id="resumeModalBackdrop"></div>
           <div class="resume-modal__dialog" role="document" aria-labelledby="resumeModalTitle">
             <header class="resume-modal__header">
-              <h3 class="h3" id="resumeModalTitle">Full Resume (PDF)</h3>
+              <h3 class="h3" id="resumeModalTitle">Full Resume</h3>
               <button class="resume-modal__close" id="closeResumeModal" aria-label="Close">&times;</button>
             </header>
             <div class="resume-modal__content">
               <!-- Inline PDF embed -->
               <iframe
-                src="assets/images/alexander_brown_resume.pdf"
-                title="Alexander Brown Resume PDF"
+                src="assets/images/Alexander_Brown_Resume.pdf"
+                title="Alexander Brown Resume"
                 loading="lazy"
                 class="resume-modal__iframe">
               </iframe>
 
               <!-- Fallback link (and convenient download) -->
               <p class="pdf-fallback">
-                <a href="assets/images/alexander_brown_resume.pdf" target="_blank" rel="noopener">Open in a new tab</a>
-                <a href="assets/images/alexander_brown_resume.pdf" download>download the PDF</a>
+                <a href="assets/images/Alexander_Brown_Resume.pdf" target="_blank" rel="noopener">Open in a new tab</a>
+                <a href="assets/images/Alexander_Brown_Resume.pdf" download>download the PDF</a>
               </p>
             </div>
           </div>
@@ -502,7 +499,10 @@
               <button class="active" data-filter-btn>All</button>
             </li>
             <li class="filter-item">
-              <button data-filter-btn>Personal</button>
+              <button data-filter-btn>Research</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-btn>Projects</button>
             </li>
             <li class="filter-item">
               <button data-filter-btn>Capstone</button>
@@ -523,7 +523,8 @@
 
             <ul class="select-list">
               <li class="select-item"><button data-select-item>All</button></li>
-              <li class="select-item"><button data-select-item>Personal</button></li>
+              <li class="select-item"><button data-select-item>Research</button></li>
+              <li class="select-item"><button data-select-item>Projects</button></li>
               <li class="select-item"><button data-select-item>Capstone</button></li>
               <li class="select-item"><button data-select-item>AI/ML</button></li>
             </ul>
@@ -532,10 +533,26 @@
           <!-- Project grid -->
           <ul class="project-list">
 
-            <!-- CupBot RL (AI/ML + Personal) -->
+            <!-- Wildlife Camera-Trap Research (Research + AI/ML) -->
+            <li class="project-item active" data-filter-item
+                data-category="research"
+                data-categories="research ai/ml">
+              <a href="#"
+                data-modal-src="projects/warbler-research.partial.html"
+                class="project-link">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/Leaf-warbler.png" alt="Hume's Leaf Warbler perched on a branch" loading="lazy">
+                </figure>
+                <h3 class="project-title">Wildlife Camera-Trap Research</h3>
+                <p class="project-category">Research / Computer Vision</p>
+              </a>
+            </li>
+
+            <!-- CupBot RL (AI/ML + Projects) -->
             <li class="project-item active" data-filter-item
                 data-category="ai/ml"
-                data-categories="ai/ml personal">
+                data-categories="ai/ml projects">
               <a href="#"
                 data-modal-src="projects/cupbot.partial.html"
                 class="project-link">
@@ -549,26 +566,10 @@
             </li>
 
 
-            <!-- TFT Yordles Bot (AI/ML + Personal) -->
-            <li class="project-item active" data-filter-item
-                data-category="ai/ml"
-                data-categories="ai/ml personal">
-              <a href="#"
-                data-modal-src="projects/tft-bot.partial.html"
-                class="project-link">
-                <figure class="project-img">
-                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                  <img src="./assets/images/the-artist-of-teemos-old-splash-art.webp" alt="TFT Yordles Bot cover" loading="lazy">
-                </figure>
-                <h3 class="project-title">TFT Yordles Bot</h3>
-                <p class="project-category">Computer Vision / OCR</p>
-              </a>
-            </li>
-
-            <!-- AI Body Camera (Capstone) -->
+            <!-- AI Body Camera (Capstone + AI/ML) -->
             <li class="project-item active" data-filter-item
                 data-category="capstone"
-                data-categories="capstone">
+                data-categories="capstone ai/ml">
               <a href="#"
                 data-modal-src="projects/bodycam.partial.html"
                 class="project-link">
@@ -585,10 +586,10 @@
               </a>
             </li>
 
-            <!-- TES ML Research (AI/ML) -->
+            <!-- TES ML Research (Research + AI/ML) -->
             <li class="project-item active" data-filter-item
-                data-category="ai/ml"
-                data-categories="ai/ml">
+                data-category="research"
+                data-categories="research ai/ml">
               <a href="#"
                 data-modal-src="projects/tes-ml.partial.html"
                 class="project-link">
@@ -605,10 +606,10 @@
               </a>
             </li>
 
-            <!-- Minesweeper AI Solver (AI/ML + Personal) -->
+            <!-- Minesweeper AI Solver (AI/ML + Projects) -->
             <li class="project-item active" data-filter-item
                 data-category="ai/ml"
-                data-categories="ai/ml personal">
+                data-categories="ai/ml projects">
               <a href="#"
                 data-modal-src="projects/minesweeper.partial.html"
                 class="project-link">
