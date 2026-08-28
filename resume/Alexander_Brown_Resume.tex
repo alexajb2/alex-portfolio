@@ -1,0 +1,109 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[top=0.43in,bottom=0.42in,left=0.52in,right=0.52in]{geometry}
+\usepackage{fontspec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+
+\setmainfont{Arial}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+\newcommand{\ressection}[1]{%
+  \vspace{6pt}%
+  {\fontsize{11.5pt}{12pt}\selectfont\bfseries\MakeUppercase{#1}}%
+  \vspace{1pt}\par\hrule\vspace{3pt}%
+}
+
+\newcommand{\entryheading}[2]{%
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr}
+    \textbf{#1} & #2
+  \end{tabular*}%
+}
+
+\setlist[itemize]{
+  leftmargin=13pt,
+  label=\raisebox{0.25ex}{\tiny$\bullet$},
+  itemsep=0pt,
+  parsep=0pt,
+  partopsep=0pt,
+  topsep=1pt
+}
+
+\begin{document}
+
+\begin{center}
+  {\fontsize{18.5pt}{19pt}\selectfont\bfseries Alexander Brown}\par
+  \vspace{2pt}
+  {\fontsize{9.6pt}{10.5pt}\selectfont
+  San Jose, CA \textbar{} alexjirocoll@gmail.com \textbar{} 408.355.5966 \textbar{}
+  linkedin.com/in/alexander-jiro-brown/ \textbar{} github.com/alexajb2}
+\end{center}
+\vspace{-5pt}
+
+\ressection{Professional Summary}
+Computer Science M.S. candidate at Georgia Tech specializing in artificial intelligence, with experience building and evaluating AI systems across computer vision, reinforcement learning, and time-series modeling. Graduate researcher applying object detection to ecological camera-trap footage, with a background in full-stack development and production software supporting 9,000+ users.
+
+\ressection{Education}
+\entryheading{Georgia Institute of Technology}{August 2025 - Expected May 2027}
+\textit{M.S. Computer Science, Artificial Intelligence Specialization}\par
+\textbf{Relevant Coursework:} Machine Learning, Deep Learning, Robotics: AI Techniques, Game AI, Introduction to Health Informatics\par
+\textbf{GPA:} 4.0
+
+\vspace{3pt}
+\entryheading{University of California, Irvine}{September 2022 - June 2025}
+\textit{B.S. Computer Science, Intelligent Systems Specialization}\par
+\textbf{Relevant Coursework:} Artificial Intelligence, Machine Learning and Data Mining, Graphical Models, Information Retrieval, Algorithm Analysis, Graph Algorithms, Embedded Software, Probability and Statistics\par
+\textbf{GPA:} 3.85
+
+\ressection{Research}
+\entryheading{Graduate Research Assistant}{May 2026 - Present}
+\textit{Georgia Tech Human Augmented Analytics Group (HAAG)}
+\begin{itemize}
+  \item Train and evaluate object detection models including YOLO, RT-DETR, DETR, and Swin Transformer-based architectures to detect and classify Hume's Leaf Warblers from Himalayan camera-trap footage
+  \item Benchmark detection performance on 50,000+ annotated frames, including 13,000+ positive examples, to support model selection for annotation-limited ecological computer vision data
+  \item Preparing a first-author journal manuscript on automated wildlife detection and behavior analysis, with draft targeted for August 2026 and submission/publication target by December 2026
+\end{itemize}
+
+\vspace{2pt}
+\entryheading{Machine Learning Research Assistant}{September 2024 - April 2025}
+\textit{California Institute of Telecommunications \& Information Technology (Cal IT2)}
+\begin{itemize}
+  \item Developed GRU, LSTM, RNN, and RBF-RNN time-series models in PyTorch to simulate thermal energy storage system behavior from sensor data, reducing inference time to under 1 second vs. a 10-minute traditional simulation runtime
+\end{itemize}
+
+\ressection{Work Experience}
+\entryheading{Full-Stack Web Developer}{March 2023 - June 2025}
+\textit{University of California, Irvine, Student Affairs Information Technology}
+\begin{itemize}
+  \item Developed and maintained full-stack web applications using Laravel, PHP, JavaScript, CSS, and MySQL, supporting 9,000+ annual users across student-facing UCI systems
+  \item Automated QA workflows using Cypress testing and custom scripts, improving release reliability
+\end{itemize}
+
+\ressection{Projects}
+\entryheading{AI BWC Footage Tagging and Purging}{January 2025 - June 2025}
+\textit{Capstone Project Team Lead}
+\begin{itemize}
+  \item Awarded 1st Place Computer Science Winner at UCI ICS Expo
+  \item Built AI-driven computer vision software for the Signal Hill Police Department to identify and categorize body-worn camera footage
+  \item Implemented ensemble ML models incorporating ImageBind, EfficientNet, and transformer architectures to classify 16 terabytes of untagged footage
+\end{itemize}
+
+\vspace{2pt}
+\entryheading{Reinforcement Learning Agent: Cuphead}{January 2025 - March 2025}
+\textit{AI Project}
+\begin{itemize}
+  \item Built a reinforcement learning agent to defeat Cuphead's Root Pack boss by combining YOLO-based real-time object detection with a Deep Q-Network (DQN) in a fast-paced, visually complex environment
+\end{itemize}
+
+\ressection{Skills}
+\textbf{Languages \& Tools:} Python, SQL, Git, Docker, AWS, Claude Code, GPT Codex, AI coding agents, Bash, Java, C++\par
+\textbf{Frameworks \& Libraries:} PyTorch, Hugging Face, Scikit-learn, NumPy, pandas, Matplotlib\par
+\textbf{Techniques:} Computer Vision, Machine Learning, Reinforcement Learning, CI/CD, End-to-End Testing
+
+\end{document}

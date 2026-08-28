@@ -832,6 +832,101 @@ main {
   line-height: 1.6;
 }
 
+.coursework-disclosure {
+  max-width: 680px;
+  margin-top: 10px;
+  overflow: hidden;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 11px;
+}
+
+.coursework-disclosure summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 13px;
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  cursor: pointer;
+  transition: color var(--transition-1), background var(--transition-1);
+}
+
+.coursework-disclosure summary::-webkit-details-marker { display: none; }
+
+.coursework-disclosure summary::marker { content: ""; }
+
+.coursework-disclosure summary:hover,
+.coursework-disclosure summary:focus-visible {
+  color: var(--orange-yellow-crayola);
+  background: hsl(240, 2%, 15%);
+}
+
+.coursework-disclosure summary ion-icon {
+  flex: 0 0 auto;
+  color: var(--orange-yellow-crayola);
+  font-size: 17px;
+  transition: transform var(--transition-1);
+}
+
+.coursework-disclosure[open] summary {
+  border-bottom: 1px solid var(--jet);
+}
+
+.coursework-disclosure[open] summary ion-icon {
+  transform: rotate(180deg);
+}
+
+.coursework-content {
+  padding: 14px 15px 17px;
+}
+
+.coursework-group:not(:last-child) {
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--jet);
+}
+
+.coursework-group-title {
+  margin-bottom: 13px;
+  color: var(--vegas-gold);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.coursework-list {
+  display: grid;
+  gap: 15px;
+}
+
+.coursework-course-title {
+  color: var(--white-2);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  line-height: 1.45;
+}
+
+.course-topics {
+  padding-left: 18px;
+  margin-top: 5px;
+}
+
+.course-topics li {
+  color: var(--light-gray-70);
+  font-size: 12px;
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+  list-style: disc;
+}
+
+.course-topics li::marker {
+  color: var(--vegas-gold);
+}
+
 
 /**
  * skills 
