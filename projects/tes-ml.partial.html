@@ -6,7 +6,7 @@
 <main class="stack-vertical tes-ml-partial">
   <section>
     <h2>Project Overview</h2>
-    <p>Simulations for thermal energy storage charging and discharging are widely used to predict costs, time requirements, and energy outcomes. However, these simulations are computationally intensive and slow. By leveraging time-sequential machine learning models, we aim to develop faster alternatives while maintaining accuracy.</p>
+    <p>Simulations for thermal energy storage charging and discharging are used to predict costs, time requirements, and energy outcomes, but can be computationally intensive. In this 2024&ndash;2025 research project, I developed PyTorch time-series models to approximate thermal energy storage behavior with faster inference.</p>
   </section>
 
   <section class="key-features">
@@ -71,7 +71,7 @@
     </table>
   </section>
     <h2>Conclusion</h2>
-    <p>This research is ongoing, with discharge patterns yet to be trained or tested. Expanding the dataset with a broader range of features will be essential for models that generalize across scenarios; as the feature space grows, dimensionality reduction will help maintain efficiency.</p>
+    <p>The experiments focused on charging patterns; discharge patterns remained outside the evaluated scope. Broader datasets and additional features are directions for future work on generalization.</p>
     <p>Preliminary results indicate that <strong>GRU</strong> predictions are the most accurate, and all models process thermal inputs in under a second with adequate hardware—dramatically faster than the ~10-minute simulation runtime.</p>
 
   <p><a href="https://github.com/alexajb2/ML-Thermal-Energy-Storage-Simulations" class="github-link" target="_blank" rel="noopener">View on GitHub</a></p>

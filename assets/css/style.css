@@ -2117,7 +2117,7 @@ html.modal-open, body.modal-open { overflow: hidden; }
 .project-modal__close {
   background: none;
   border: none;
-  color: inherit;
+  color: var(--white-2);
   font-size: 1.75rem;
   line-height: 1;
   cursor: pointer;
@@ -2130,6 +2130,15 @@ html.modal-open, body.modal-open { overflow: hidden; }
 }
 
 /* Make links inside modals match your accent */
+.project-modal__content .masters-project-partial {
+  margin: 20px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.project-modal__content .masters-project-partial section + section { margin-top: 18px; }
+.project-modal__content .masters-project-partial h2 { margin-bottom: 6px; }
+.project-modal__content .masters-project-partial li { list-style: disc; }
+
 .project-modal a { color: #ffcc66; }
 .project-modal a:hover { text-decoration: underline; }
 

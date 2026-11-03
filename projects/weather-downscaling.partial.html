@@ -1,0 +1,31 @@
+<header class="project-header project-header--compact">
+  <h1>Probabilistic Weather Downscaling</h1>
+  <p>Deep learning project &middot; October 2026 &ndash; Present &middot; In progress</p>
+</header>
+
+<main class="stack-vertical masters-project-partial">
+  <section>
+    <h2>Overview</h2>
+    <p>A team project for Georgia Tech's Deep Learning course, developing probabilistic downscaling for California temperature, wind, and precipitation. The project compares residual diffusion conditioned directly on ERA5 with diffusion conditioned on AI-LAM regional-model outputs, using CONUS404 as the high-resolution reference.</p>
+  </section>
+
+  <section>
+    <h2>My Contributions</h2>
+    <ul>
+      <li>Building ERA5 and CONUS404 ingestion into Zarr, including 8-km regridding, normalization, and data loaders.</li>
+      <li>Developing two residual EDM diffusion models using ERA5 or AI-LAM hindcasts as conditioning inputs.</li>
+      <li>Implementing ensemble sampling to generate multiple plausible fine-scale weather fields.</li>
+      <li>Connecting data preparation with model training and sampling, working alongside teammates responsible for the regional model, baseline, and evaluation.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Tech Stack</h2>
+    <p>Python, PyTorch, Zarr, ERA5, CONUS404, conditional diffusion, ensemble sampling.</p>
+  </section>
+
+  <section>
+    <h2>Current Focus</h2>
+    <p>Developing the data pipeline and conditional diffusion components for the team's comparison of direct and regional-model-conditioned downscaling.</p>
+  </section>
+</main>

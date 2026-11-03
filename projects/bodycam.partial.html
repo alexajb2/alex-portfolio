@@ -40,12 +40,17 @@
   </section>
 
   <section>
+    <h2>My Contributions</h2>
+    <p>As team lead for this January&ndash;June 2025 capstone, I built an Electron/React review app and FastAPI backend for Signal Hill Police Department's 16-TB footage-tagging initiative. I integrated Faster-Whisper transcription, visual-similarity models, and ensemble classification into the review workflow.</p>
+  </section>
+
+  <section>
     <h2>Tech Stack</h2>
     <ul>
       <li>PyTorch, TensorFlow</li>
       <li>faster-whisper (ASR), TorchAudio</li>
       <li>OpenCV, TorchVision</li>
-      <li>Python, Flask, Docker</li>
+      <li>Python, FastAPI, Electron, React, Docker</li>
     </ul>
   </section>
 
@@ -55,8 +60,7 @@
       <li><strong>Frontend:</strong> Electron + React interface for upload, classification, embedded playback, and optional manual review/purge.</li>
       <li><strong>Transcript Generator:</strong> faster-whisper with compression/volume/speech-pattern thresholds for improved ASR accuracy.</li>
       <li><strong>Transformer Model:</strong> event classification over transcript tokens (with GPT-synthesized training data).</li>
-      <li><strong>ImageBind Model:</strong> multimodal joint embedding across image/audio/text/depth/thermal/IMU.</li>
-      <li><strong>Feature Similarity:</strong> EfficientNet CNN trained to detect car-inspection-like visuals.</li>
+      <li><strong>Feature Similarity:</strong> visual-similarity models to support footage classification.</li>
       <li><strong>Ensemble:</strong> decision-tree combiner over all model outputs for the final tag.</li>
     </ul>
   </section>

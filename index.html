@@ -199,7 +199,7 @@
 
         <section class="about-text">
           <p>
-            I am a Bay Area software developer and Georgia Tech M.S. in Computer Science student specializing in Artificial Intelligence, with an expected graduation in May 2027. My work spans machine learning and AI, with an emphasis on computer vision, reinforcement learning, and applied research.
+            I am a Bay Area software developer and Georgia Tech M.S. in Computer Science student specializing in Artificial Intelligence, with an expected graduation in May 2027. My work spans full-stack applications, computer vision, and applied machine learning. I am seeking software engineering and applied AI roles starting after graduation.
           </p>
 
           <p>
@@ -240,10 +240,10 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Perception, Robotics &amp; ML</h4>
+                <h4 class="h4 service-item-title">Computer Vision &amp; Applied ML</h4>
 
                 <p class="service-item-text">
-                  My interests span computer vision, machine learning, and robotics. I build and evaluate object-detection pipelines for ecological camera-trap research and am exploring reinforcement-learning projects combining visual perception with decision-making. My graduate coursework covers AI and ML, supporting a longer-term focus on computational perception and intelligent robotic systems.
+                  I trained and benchmarked object detectors for ecological camera-trap research with Georgia Tech's Human Augmented Analytics Group. I am now developing data pipelines and conditional diffusion models for California weather downscaling, building on experience with PyTorch, HPC experiments, and reinforcement learning.
                 </p>
               </div>
 
@@ -275,7 +275,7 @@
                 <h4 class="h4 service-item-title">Research &amp; Projects</h4>
 
                 <p class="service-item-text">
-                  My portfolio currently emphasizes research and applied machine learning work. I expect to add more personal projects over time as my graduate research allows. Check out the portfolio section to see what I've been working on.
+                  My current master's projects combine applied ML and software engineering: probabilistic weather downscaling and a medical bill and explanation-of-benefits (EOB) assistant. My contributions focus on weather data pipelines and diffusion models, plus document extraction, billing checks, and shared UI integration.
                 </p>
               </div>
 
@@ -358,7 +358,7 @@
               <span>August 2025 &mdash; Expected May 2027</span>
 
               <p class="timeline-text">
-                Master of Science in Computer Science, specialization in Artificial Intelligence (in progress).
+                Master of Science in Computer Science, specialization in Artificial Intelligence. Expected graduation: May 2027.
               </p>
 
               <details class="coursework-disclosure">
@@ -554,14 +554,13 @@
 
               <h4 class="h4 timeline-item-title">Graduate Research Assistant</h4>
 
-              <span>2026 — Current</span>
+              <span>May 2026 &mdash; September 2026</span>
 
               <p class="timeline-text">
-                Working with Georgia Tech's Human Augmented Analytics Group (HAAG) on computer vision pipelines to detect
-                and classify Hume's Leaf Warblers from Himalayan camera trap footage. Training on a dataset of 50,000+
-                annotated frames and comparing YOLO and DETR/RT-DETR detection approaches on annotation-limited
-                ecological data, with ongoing work toward a publication. Also exploring tracking and behavior analysis
-                methods to support automated wildlife monitoring.
+                Trained and benchmarked YOLO, RT-DETR, DETR, and Swin-based object detectors with Georgia Tech's
+                Human Augmented Analytics Group (HAAG) to detect Hume's Leaf Warblers in Himalayan camera-trap footage.
+                Evaluated models on a dataset of 50,000+ annotated frames and ran HPC ablations across hyperparameters,
+                augmentation, and data splits for annotation-limited ecological detection.
               </p>
 
             </li>
@@ -690,6 +689,36 @@
 
           <!-- Project grid -->
           <ul class="project-list">
+
+            <li class="project-item active" data-filter-item
+                data-category="projects"
+                data-categories="projects ai/ml">
+              <a href="projects/medical-bill-eob.partial.html"
+                data-modal-src="projects/medical-bill-eob.partial.html"
+                class="project-link">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/medical-bill-eob.svg" alt="Medical billing documents and validation checks" loading="lazy">
+                </figure>
+                <h3 class="project-title">Medical Bill and EOB Assistant</h3>
+                <p class="project-category">Full Stack / Health Informatics &middot; In progress</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item
+                data-category="projects"
+                data-categories="projects ai/ml">
+              <a href="projects/weather-downscaling.partial.html"
+                data-modal-src="projects/weather-downscaling.partial.html"
+                class="project-link">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/weather-downscaling.svg" alt="Weather cloud above a regional forecast grid" loading="lazy">
+                </figure>
+                <h3 class="project-title">Probabilistic Weather Downscaling</h3>
+                <p class="project-category">Deep Learning / Data Pipelines &middot; In progress</p>
+              </a>
+            </li>
 
             <!-- Wildlife Camera-Trap Research (Research + AI/ML) -->
             <li class="project-item active" data-filter-item
